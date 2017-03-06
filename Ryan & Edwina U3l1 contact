@@ -1,0 +1,56 @@
+
+contact_list = []
+
+new_contact = []		
+
+def contact(new_contact):
+	y_n = raw_input("Do you want to add a new contact?" \
+		" Reply with y for yes, and n if you want to delete" + '\n')
+	if y_n == "y":
+		print "B4 del" + str(new_contact)
+		add_contact(new_contact)
+		
+		print "after del" + str(new_contact)
+	if y_n == "n":
+		delete_contact(contact_list)
+		
+	print "conatct_list = " + str(contact_list) 
+	contact(new_contact)
+
+def add_contact(new_contact):
+	info(new_contact) 
+	contact_list.append(new_contact)
+	print contact_list
+	del new_contact[:]
+
+
+def info(new_contact):
+    first = raw_input("What is your first name?" + '\n')
+    last = raw_input("What is your last name?" + '\n')
+    new_contact.append(first + " " + last)
+
+    phone_number = raw_input("What your phone number?" + '\n')
+    new_contact.append(phone_number)
+
+  
+    print contact_list
+
+def delete_contact(contact_list):
+	print contact_list
+	response = raw_input("which person do you want to DELETE from your contacts?"\
+					" type the position of the name" + '\n')
+	
+	if type(int(response)) == int and (0 < int(response) <= len(contact_list)):
+		print "before pop" + str(contact_list)
+		contact_list.pop(int(response) - 1)
+	else:
+		delete_contact(contact_list)
+		print contact_list
+
+def invalid_input():
+    
+    print "That\'s not a valid answer, try again. "
+
+
+contact(new_contact)
+# pass by ref and fun parameters/arguments

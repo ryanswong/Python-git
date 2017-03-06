@@ -1,0 +1,9 @@
+import turtle
+
+"Abstarction for Drawing block"
+def draw_shape(sides, ):
+	turtle.speed(100)
+  	for i in range(1, 500):
+	    turtle.forward(i)
+	    turtle.right(120.5)
+draw_shape(5)
